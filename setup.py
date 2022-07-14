@@ -13,5 +13,5 @@ setup(name='LCproject',
       test_suite='tests',
       # include_package_data: to install data from MANIFEST.in
       include_package_data=True,
-      scripts=['scripts/LCproject-run'],
+      scripts=['scripts/LCproject-run', 'scripts/LCproject-run2'],
       zip_safe=False)
