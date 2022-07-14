@@ -1,1 +1,1 @@
-web: pip install . -U && LCproject-run
+web: pip install . -U && LCproject
