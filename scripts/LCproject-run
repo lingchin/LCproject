@@ -1,2 +1,26 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+import string
+from nltk.tokenize import word_tokenize
+from nltk.corpus import stopwords
+from nltk.stem import WordNetLemmatizer
+# import nltk
+# nltk.download('omw-1.4')
+
+def clean_text(text):
+    for punctuation in string.punctuation:
+        text = text.replace(punctuation, "") #remove punctuations
+    text = text.strip() #do this after punctuation b/c often reviews have !! at the end
+    text = text.lower() #lowercase all letter
+    text = "".join(w for w in text if not w.isdigit()) #join text back exc digits
+
+    token_text = word_tokenize(text)
+    stop_words= set(stopwords.words('english'))
+    token_text = [w for w in token_text if not w in stop_words]
+    lem_text = [WordNetLemmatizer().lemmatize(word, pos= 'v') for word in token_text]
+    cleaned_text = " ".join(word for word in lem_text)
+
+    return cleaned_text
+
+if __name__=='__main__':
+    print(clean_text("Hello!#@"))
