@@ -73,3 +73,15 @@ jobs:
   #       heroku_api_key: ${{secrets.HEROKU_API_KEY}}
   #       heroku_app_name: "REPLACE_WITH_YOUR_HEROKU_APP_NAME" # Must be unique in Heroku
   #       heroku_email: ${{secrets.HEROKU_EMAIL}}
+ 
+  deploy_heroku:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: akhileshns/heroku-deploy@v3.0.4 # This is the action
+      with:
+        heroku_api_key: ${{secrets.ab398b9c-003b-4a5f-8578-5e1a9122789f}}
+        heroku_app_name: "lccleantextproject" # Must be unique in Heroku
+        heroku_email: ${{secrets.ling_chin99@yahoo.com}}
